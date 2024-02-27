@@ -470,7 +470,7 @@ class LimeTabularExplainer(object):
             ret_exp.local_exp[1] = [x for x in ret_exp.local_exp[0]]
             ret_exp.local_exp[0] = [(i, -1 * j) for i, j in ret_exp.local_exp[1]]
 
-        return data, ret_exp
+        return inverse, ret_exp
 
     def __data_inverse(self,
                        data_row,
