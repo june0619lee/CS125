@@ -453,7 +453,7 @@ class LimeTabularExplainer(object):
             ret_exp.max_value = max_y
             labels = [0]
         for label in labels:
-            (ret_exp.intercept[label],
+             weights, (ret_exp.intercept[label],
              ret_exp.local_exp[label],
              ret_exp.score[label],
              ret_exp.local_pred[label]) = self.base.explain_instance_with_data(
@@ -470,7 +470,7 @@ class LimeTabularExplainer(object):
             ret_exp.local_exp[1] = [x for x in ret_exp.local_exp[0]]
             ret_exp.local_exp[0] = [(i, -1 * j) for i, j in ret_exp.local_exp[1]]
 
-        return inverse, ret_exp
+        return inverse, ret_exp, weights
 
     def __data_inverse(self,
                        data_row,
