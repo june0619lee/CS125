@@ -352,6 +352,8 @@ class LimeTabularExplainer(object):
                 scaled_data = scaled_data.tocsr()
         else:
             print("data", data)
+            print("scaled mean", self.scaler.mean_)
+            print("scaled mean", self.scaler.scale_)
             scaled_data = (data - self.scaler.mean_) / self.scaler.scale_
             print("scaled data", scaled_data)
         distances = sklearn.metrics.pairwise_distances(
