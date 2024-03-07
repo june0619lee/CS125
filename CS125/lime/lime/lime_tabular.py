@@ -351,7 +351,9 @@ class LimeTabularExplainer(object):
             if not sp.sparse.isspmatrix_csr(scaled_data):
                 scaled_data = scaled_data.tocsr()
         else:
+            print("data", data)
             scaled_data = (data - self.scaler.mean_) / self.scaler.scale_
+            print("scaled data", scaled_data)
         distances = sklearn.metrics.pairwise_distances(
                 scaled_data,
                 scaled_data[0].reshape(1, -1),
