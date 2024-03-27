@@ -355,6 +355,7 @@ class LimeTabularExplainer(object):
             # print("scaled mean", self.scaler.mean_)
             # print("scale", self.scaler.scale_)
             scale_factor = self.scaler.scale_
+            mean = self.scaler.mean_
             scaled_data = (data - self.scaler.mean_) / scale_factor
             # print("scaled data", scaled_data)
         distances = sklearn.metrics.pairwise_distances(
@@ -475,7 +476,7 @@ class LimeTabularExplainer(object):
             ret_exp.local_exp[1] = [x for x in ret_exp.local_exp[0]]
             ret_exp.local_exp[0] = [(i, -1 * j) for i, j in ret_exp.local_exp[1]]
 
-        return inverse, ret_exp, weights, scale_factor
+        return inverse, ret_exp, weights, scale_factor, mean
 
     def __data_inverse(self,
                        data_row,
