@@ -525,7 +525,7 @@ class LimeTabularExplainer(object):
                 mean = mean[non_zero_indexes]
 
             if sampling_method == 'gaussian':
-                data = self.random_state.normal(0, 1, num_samples * num_cols
+                data = self.random_state.normal(0, 0.1, num_samples * num_cols
                                                 ).reshape(num_samples, num_cols)
                 data = np.array(data)
             elif sampling_method == 'lhs':
