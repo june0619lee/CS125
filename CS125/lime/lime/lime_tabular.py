@@ -364,7 +364,7 @@ class LimeTabularExplainer(object):
                 metric=distance_metric
         ).ravel()
 
-        # scaled_return = scaled_data
+        scaled_return = scaled_data
 
         yss = predict_fn(inverse)
 
@@ -478,7 +478,7 @@ class LimeTabularExplainer(object):
             ret_exp.local_exp[1] = [x for x in ret_exp.local_exp[0]]
             ret_exp.local_exp[0] = [(i, -1 * j) for i, j in ret_exp.local_exp[1]]
 
-        return inverse, ret_exp, weights, scale_factor, mean
+        return inverse, ret_exp, weights, scale_factor, mean, scaled_return
 
     def __data_inverse(self,
                        data_row,
